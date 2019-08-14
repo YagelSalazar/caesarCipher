@@ -14,9 +14,11 @@ def main():
 
 def obtener_cifrado(llave, texto_plano):
     cif = ""
+    size = len(llave)
     for index,val in enumerate(texto_plano): #val es la letra
-        c = ord(val) ^ ord(llave[0])
-        cif += str(chr(c))
+        c = ord(val) ^ ord(llave[index % size])
+        print(hex(c))
+        cif = cif + str(hex(c))
     return cif
 
 main()
